@@ -1,0 +1,11 @@
+--- work/src/Makevars.in.orig	2018-06-25 09:52:18.000000000 -0700
++++ work/src/Makevars.in	2018-06-25 09:52:46.000000000 -0700
+@@ -9,7 +9,7 @@
+ 
+ server:	$(SERVER_SRC) $(SERVER_H)
+ 	$(CC) -DSTANDALONE_RSERVE -DDAEMON -I. -Iinclude $(ALL_CPPFLAGS) $(ALL_CFLAGS) $(CPPFLAGS) $(CFLAGS) $(PKG_CPPFLAGS) $(PKG_CFLAGS) -o Rserve $(SERVER_SRC) $(ALL_LIBS) $(PKG_LIBS)
+-	$(CC) -DSTANDALONE_RSERVE -DRSERV_DEBUG -DNODAEMON -I. -Iinclude $(ALL_CPPFLAGS) $(ALL_CFLAGS) $(PKG_CPPFLAGS) $(PKG_CFLAGS) -o Rserve.dbg $(SERVER_SRC) $(ALL_LIBS) $(PKG_LIBS)
++	$(CC) -DSTANDALONE_RSERVE -DRSERV_DEBUG -DNODAEMON -I. -Iinclude $(ALL_CPPFLAGS) $(ALL_CFLAGS) $(PKG_CPPFLAGS) $(PKG_CFLAGS) -o Rserve.dbg $(SERVER_SRC) @RLD@ $(ALL_LIBS) $(PKG_LIBS)
+ 
+ # merging to bin/Rserve works only if installed from sources, won't work for binary
+ 	-./mergefat Rserve "$(R_HOME)/bin/Rserve"
