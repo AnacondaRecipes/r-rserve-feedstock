@@ -1,4 +1,4 @@
-{% set version = '1.7-3' %}
+{% set version = '1.7-3.1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/Rserve_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Rserve/Rserve_{{ version }}.tar.gz
-  sha256: f6d636c736c3f16487d9987e54554fe0c55257b9bc0671b43e536d832e513027
+  sha256: 3ba1e919706e16a8632def5f45d666b6e44eafa6c14b57064d6ddf3415038f99
 
   patches:
     - 0001-Use-value-of-RLD-when-linking.patch
@@ -19,7 +19,7 @@ source:
 build:
   merge_build_host: True  # [win]
   # If this is a new build for the same version, increment the build number.
-  number: 5
+  number: 0
 
   # This is required to make R link correctly on Linux.
   rpaths:
@@ -84,7 +84,7 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: Rserve
-# Version: 1.7-3
+# Version: 1.7-3.1
 # Title: Binary R server
 # Author: Simon Urbanek <Simon.Urbanek@r-project.org>
 # Maintainer: Simon Urbanek <Simon.Urbanek@r-project.org>
@@ -96,7 +96,8 @@ extra:
 # URL: http://www.rforge.net/Rserve/
 # NeedsCompilation: yes
 # Repository: CRAN
-# Date/Publication: 2013-08-21 23:35:21
+# Date/Publication: 2019-04-15 16:53:44 UTC
+# Packaged: 2019-03-14 18:24:52 UTC; ripley
 
 # See
 # http://docs.continuum.io/conda/build.html for
